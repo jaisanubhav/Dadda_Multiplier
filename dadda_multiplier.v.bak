@@ -1,0 +1,30 @@
+module dadda_multiplier (in1, in2, out);
+	parameter width = 16;
+	input [width-1:0] in1, in2;
+	output [2*width-1:0] out;
+	
+	reg [2*width-1:0] pp [width-1:0];
+	
+	wire [2*width-1:0] temp_sum [width-1:0];
+	wire [2*width-1:0] temp_cout [width-1:0];
+	wire [2*width-1:0] row_1 [width-1:0];
+	wire [2*width-1:0] row_2 [width-1:0];
+	wire [2*width-1:0] row_3 [width-1:0];
+	
+	integer i;
+	
+	always@(*)
+	begin
+		for (i=0; i<width; i=i+1)
+		begin
+			if (in2[i] == 1'b1)
+				pp[i] = (in1 << i);
+			else
+				pp[i] = {2*width{1'b0}};	
+		end
+	end
+	
+
+	brent_kung_adder bka ( temp_sum[width-3] , temp_cout[width-3], 0, out);
+	
+endmodule

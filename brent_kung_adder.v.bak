@@ -1,0 +1,20 @@
+module brent_kung_adder (in1, in2, out);
+	parameter width = 16;
+	input [width-1:0] in1, in2;
+	output [2*width-1:0] out;
+	
+	wire [width-1:0] pi, gi [$clog2(width):1];
+	
+	assign pi[1] = in1 ^ in2 ;
+	assign gi[1] = in1 & in2 ;
+	
+	genvar i;
+	
+	generate
+		for (i=1; i<= width; i= 2**i)
+		begin: pi_gi
+			
+		end
+	endgenerate
+	
+endmodule

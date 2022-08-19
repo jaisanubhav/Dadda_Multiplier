@@ -1,1 +1,2 @@
-# 16 bit Dadda_Multiplier
+# Dadda-Multiplier
+16x16 bit Dadda Multiplier Design
